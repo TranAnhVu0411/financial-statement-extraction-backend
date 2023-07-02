@@ -23,7 +23,7 @@ exports.register = async (req, res) => {
 
         const account = await Account.create(accountParams);
 
-        res.status(200).json({info: account, token: token});
+        res.status(200).json({info: account});
     }catch(err){
         console.log(err);
         res.status(500).json({
