@@ -82,5 +82,10 @@ exports.pageInfo = (req, res) => {
     let image = {original: `${baseUrl}/${userid}/${id}/images/${page}/page-${page}-original.jpg`, preprocess: `${baseUrl}/${userid}/${id}/images/${page}/page-${page}-preprocess.jpg`}
     let rawdata = readFileSync(metadataPath)
     let metadata = JSON.parse(rawdata)
+    if (metadata.table_metadata.length > 0) {
+        for (let i = 0; i < metadata.table_metadata.length; i++) {
+            metadata.table_metadata[i].excel_url = `${baseUrl}/${userid}/${id}/metadata/${page}/excel/${metadata.table_metadata[i].table_id}.xlsx`
+        }
+    }
     res.json({'metadata': metadata, 'pageimages': image})
 }
