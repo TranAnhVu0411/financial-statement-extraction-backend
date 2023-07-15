@@ -24,5 +24,8 @@
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.31.1",
     "uuid": "^9.0.0"
-  }
+  },
+  "nodemonConfig": {
+    "ignore": ["upload"]
+  } 
 }
